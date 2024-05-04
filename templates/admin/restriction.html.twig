@@ -1,0 +1,43 @@
+
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+
+
+{% block body %}
+    <div class="container">
+        {% block content %}
+            <h1>Virtual Machines</h1>
+            {% if virtualMachinesRes %}
+                <p>No virtual machines found.</p>
+                <table class="table table-primary">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">groupID</th>
+                        <th scope="col">orgDisplayName</th>
+                        <th scope="col">integrityConstraint</th>
+                        <th scope="col">cpu</th>
+                        <th scope="col">memory</th>
+                        <th scope="col">VNC Port</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ virtualMachinesRes.id }}</td>
+                            <td>{{ virtualMachinesRes.groupID }}</td>
+                            <td>{{ virtualMachinesRes.orgDisplayName }}</td>
+                            <td>{{ virtualMachinesRes.integrityConstraint }}</td>
+                            <td>{{ virtualMachinesRes.cpu.processors }}</td>
+                            <td>{{ virtualMachinesRes.memory }}</td>
+                            <td>{{ virtualMachinesRes.remoteVNC.VNCPort }}</td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No details found for the virtual machine.</p>
+            {% endif %}
+        {% endblock %}
+    </div>
+{% endblock %}

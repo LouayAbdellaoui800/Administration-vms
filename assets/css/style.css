@@ -1,0 +1,27 @@
+/* public/assets/css/styles.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.vm-list {
+    list-style-type
+    padding: 0;
+}
+
+.vm-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.vm-item strong {
+    color: #333;
+}
+
+.vm-item span {
+    color: #666;
+}

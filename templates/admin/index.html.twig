@@ -1,0 +1,30 @@
+{# templates/admin/index.html.twig #}
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block content %}
+        <div class="row">
+                <div class="col-md-12">
+                        <h1 class="mb-4">Virtual Machines</h1>
+                        {% if virtualMachines is empty %}
+                                <p>No virtual machines found.</p>
+                        {% else %}
+                                <div class="row">
+                                        {% for vm in virtualMachines %}
+                                                <div class="col-md-4 mb-4">
+                                                        <div class="card">
+                                                                <div class="card-body">
+                                                                        <h5 class="card-title" >ID</h5>
+                                                                        <p class="card-text" >{{ vm.id }}</p>
+                                                                        <h5 class="card-text">Path</h5>
+                                                                        <p class="card-text">Path: {{ vm.path }}</p>
+                                                                        <a href="{{ urlGenerator.generate('id', {'id': vm.id}) }}" class="btn btn-primary">Details</a>
+                                                                        <a href="{{ urlGenerator.generate('update_vm', {'id': vm.id}) }}" class="btn btn-primary">Update</a>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        {% endfor %}
+                                </div>
+                        {% endif %}
+                </div>
+        </div>
+{% endblock %}

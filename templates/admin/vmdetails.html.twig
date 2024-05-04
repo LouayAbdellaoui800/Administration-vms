@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    VMS - Virtual Machines Details
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h1 class="mb-0">Virtual Machines</h1>
+                    </div>
+                    <div class="card-body">
+                        {% if virtualMachinesDetails is empty %}
+                            <p class="text-center">No virtual machines found.</p>
+                        {% else %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="fas fa-id-badge"></i> ID</h5>
+                                            <p class="card-text">{{ virtualMachinesDetails.id }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="fas fa-microchip"></i> CPU</h5>
+                                            <p class="card-text">Path: {{ virtualMachinesDetails.cpu.processors }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><i class="fas fa-memory"></i> Memory</h5>
+                                            <p class="card-text">Memory: {{ virtualMachinesDetails.memory }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
